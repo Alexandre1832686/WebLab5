@@ -1,0 +1,17 @@
+﻿.page-title {
+    margin-bottom: 0;
+}
+
+#contact-page {
+    padding-bottom: 60px;
+}
+
+#contact-page .form-section {
+    margin-top: 40px;
+    text-align: left;
+}
+
+#contact-page .form-section .form-button {
+    margin-top: 15px;
+    text-align: center;
+}

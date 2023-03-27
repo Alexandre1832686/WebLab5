@@ -1,0 +1,41 @@
+﻿@model ProductDeleteVM
+@{
+    ViewData["Title"] = "Supprimer un produit";
+}
+
+<div id="product-delete-page">
+    <div class="row">
+        <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
+            <div class="page-title">
+                <h2>Supprimer un produit</h2>
+            </div>
+            <div class="form-section">
+                <h5>Êtes-vous certain de vouloir supprimer ce produit ?</h5>
+                <hr />
+                <div class="row details-row">
+                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Product.Code) : </div>
+                    <div class="col-sm-6">@Html.DisplayFor(model => model.Product.Code)</div>
+                </div>
+                <div class="row details-row">
+                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Product.Name) : </div>
+                    <div class="col-sm-6">@Html.DisplayFor(model => model.Product.Name)</div>
+                </div>
+                <div class="row details-row">
+                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Product.CategoryId) : </div>
+                    <div class="col-sm-6">@Model.CategoryName</div>
+                </div>
+                <div class="row details-row">
+                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Product.QuantityInStock) : </div>
+                    <div class="col-sm-6">@Html.DisplayFor(model => model.Product.QuantityInStock)</div>
+                </div>
+                <hr />
+                <form asp-action="Delete">
+                    <input type="submit" value="Supprimer" class="btn btn-danger" />
+                </form>
+            </div>
+            <div class="links">
+                <a asp-action="List">Retour à la liste des produits</a>
+            </div>
+        </div>
+    </div>
+</div>

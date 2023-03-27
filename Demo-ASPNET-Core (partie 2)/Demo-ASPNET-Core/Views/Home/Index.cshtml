@@ -1,0 +1,29 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+<div id="home-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Accueil</h2>
+            </div>
+        </div>
+
+        <div>
+            @foreach (Category category in Model)
+            {
+                @*category.Name*@
+                @*Html.DisplayFor(model => category.Name)*@
+
+                <a asp-action="Category" asp-route-id="@category.Id">@Html.DisplayFor(model => category.Name)</a>
+                <br />
+            }
+        </div>
+
+        <div class="image-section">
+            <img src="~/img/home-truck.png" alt="Camion" class="img-fluid" />
+        </div>
+    </div>
+</div>

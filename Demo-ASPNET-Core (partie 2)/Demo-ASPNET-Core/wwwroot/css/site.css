@@ -1,0 +1,71 @@
+html {
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #eaf0fc;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+main {
+    padding: 30px 0 0 0;
+}
+
+.page-title {
+    margin-bottom: 30px;
+}
+
+#home-page .image-section {
+    margin-top: 50px;
+}
+
+#category-page,
+#message-page {
+    padding-bottom: 60px;
+}
+
+#category-page h5 {
+    margin-bottom: 15px;
+}
+
+#category-page .links {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    #category-page img {
+        margin-bottom: 30px;
+    }
+}

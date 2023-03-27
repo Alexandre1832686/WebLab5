@@ -1,0 +1,38 @@
+﻿@model HomeCategoryVM
+@{
+    ViewData["Title"] = Model.Category.Name;
+}
+
+<div id="category-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <!--<h2>@*Model.Category.Name*@</h2>-->
+                <h2>@Html.DisplayFor(model => Model.Category.Name)</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="image-section">
+                <img src="~/img/categories/@Model.Category.ImagePath" alt="@Html.DisplayFor(model => Model.Category.Name)" class="img-thumbnail img-fluid" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5>Liste des produits</h5>
+
+            @foreach (Product product in Model.Products)
+            {
+                <!--@*product.Code*@ <text> | </text> @*product.Name*@-->
+                @Html.DisplayFor(model => product.Code) <text> | </text>
+                @Html.DisplayFor(model => product.Name)
+                <br />
+            }
+
+            <div class="links">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Retour à l'accueil</a>
+            </div>
+        </div>
+    </div>
+</div>

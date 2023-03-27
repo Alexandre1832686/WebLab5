@@ -1,0 +1,60 @@
+﻿@model MenuListVM
+@{
+    ViewData["Title"] = "Liste des produits";
+}
+
+<div id="produit-list-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Liste des choix de menu</h2>
+            </div>
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+                    <!--
+                    <th>Code</th>
+                    <th>Nom du produit</th>
+                    <th>Catégorie</th>
+                    <th>Quantité en stock</th>
+                    -->
+                    <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
+                    <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                    <
+                    <th>@Html.DisplayNameFor(model => model.Produits[0].nom)</th>
+                    
+                    <th>Actions</th>
+                </tr>
+                @if (Model.Produits.Count > 0)
+                {
+                    foreach (Produit produit in Model.Produits)
+                    {
+                        <tr>
+                            <!--
+                            <td>@*produit.Code*@</td>
+                            <td>@*produit.Name*@</td>
+                            <td>@*produit.QuantityInStock*@</td>
+                            -->
+                            <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
+                            <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                           
+                            <td>@Html.DisplayFor(model => produit.nom)</td>
+                            
+                            <td>
+                                <a asp-action="Edit" asp-route-id="">Éditer</a>
+                                <a asp-action="Delete" asp-route-id="">Supprimer</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Aucun produit trouvé.</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@using LabWeb5.ViewModels
+@model ReservationListVM
+@{
+    ViewData["Title"] = "Liste des produits";
+}
+
+<div id="produit-list-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Liste des choix de menu</h2>
+            </div>
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+
+                    <th>@Html.DisplayNameFor(model => model.reservation[0].Date)</th>
+                    <th>@Html.DisplayNameFor(model => model.reservation[0].Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.reservation[0].Courriel)</th>
+                    <th>@Html.DisplayNameFor(model => model.reservation[0].ProduitId)</th>
+                    <th>@Html.DisplayNameFor(model => model.reservation[0].Nombre)</th>
+                    
+                    <th>Actions</th>
+                </tr>
+                @if (Model.reservation.Count > 0)
+                {
+                    foreach (Reservation res in Model.reservation)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => res.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => res.Nom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => res.Courriel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => res.ProduitId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => res.Nombre)
+                            </td>
+                            <td>
+                                    <a asp-area="Admin" asp-controller="Reservation" asp-action="Delete" asp-route-id="@res.Id"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Aucune reservation trouvée.</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

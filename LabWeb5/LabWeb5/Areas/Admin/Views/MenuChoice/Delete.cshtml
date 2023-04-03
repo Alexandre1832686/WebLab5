@@ -1,1 +1,27 @@
-﻿
+﻿@model Produit
+@{
+    ViewData["Title"] = "Liste des produits";
+    
+    
+}
+
+<div id="produit-list-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Supprimer un choix de menu</h2>
+
+                <form asp-action="DeletePost">
+                    <label for="desc">Description :</label>
+                    <input type="hidden" asp-for="Id" />
+                    <h2>@Model.Nom</h2>
+                    <input type="submit" />
+                </form>
+
+                <br/>
+                <a asp-action="List">Retour à la liste des choix de menu</a>
+            </div>
+
+        </div>
+    </div>
+</div>

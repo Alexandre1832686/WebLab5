@@ -20,8 +20,8 @@
                     <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
                     <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
 
-                    <
-                    <th>@Html.DisplayNameFor(model => model.Produits[0].nom)</th>
+                    
+                    <th>@Html.DisplayNameFor(model => model.Produits[0].Nom)</th>
                     
                     <th>Actions</th>
                 </tr>
@@ -30,20 +30,15 @@
                     foreach (Produit produit in Model.Produits)
                     {
                         <tr>
-                            <!--
-                            <td>@*produit.Code*@</td>
-                            <td>@*produit.Name*@</td>
-                            <td>@*produit.QuantityInStock*@</td>
-                            -->
-                            <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
-                            <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
-
-                           
-                            <td>@Html.DisplayFor(model => produit.nom)</td>
-                            
                             <td>
-                                <a asp-action="Edit" asp-route-id="">Éditer</a>
-                                <a asp-action="Delete" asp-route-id="">Supprimer</a>
+                                @Html.DisplayFor(model => produit.Nom)
+                            </td>
+
+                            <td >
+                                <div style="tyletext-align:center; display:inline-flex">
+                                <a asp-area="Admin" asp-controller="MenuChoice" asp-action="Edit" asp-route-id="@produit.Id"><i class="fa-regular fa-pen-to-square"></i></a><p> | </p>
+                                <a asp-area="Admin" asp-controller="MenuChoice" asp-action="Delete" asp-route-id="@produit.Id"><i class="fa-solid fa-trash"></i></a>
+                                </div>
                             </td>
                         </tr>
                     }
@@ -55,6 +50,11 @@
                     </tr>
                 }
             </table>
+            <div style="width:100%;text-align:center;">
+                <a asp-action="Create">
+                    Ajouter un choix de menu
+                </a>
+            </div>
         </div>
     </div>
 </div>

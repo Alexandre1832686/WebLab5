@@ -16,5 +16,47 @@ namespace LabWeb5.Areas.Admin.Controllers
             MenuListVM vm = new MenuListVM(facto.GetAll());
             return View(vm);
         }
+
+        [Area("Admin")]
+        public IActionResult Edit(int id)
+        {
+            DAL dal = new DAL();
+            ProductFactory facto = dal.ProductFact;
+            return View(facto.Get(id));
+        }
+        [Area("Admin")]
+        public IActionResult Create()
+        {
+            DAL dal = new DAL();
+            ProductFactory facto = dal.ProductFact;
+            return View(facto.CreateEmpty());
+        }
+        [Area("Admin")]
+        public IActionResult Delete(int id)
+        {
+            DAL dal = new DAL();
+            ProductFactory p = dal.ProductFact;
+            return View(p.Get(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Produit p)
+        {
+            DAL dal = new DAL();
+            ProductFactory facto = dal.ProductFact;
+            facto.Save(p);
+           return RedirectToAction("List");
+        }
+        [HttpPost]
+        public IActionResult DeletePost(int id)
+        {
+            DAL dal = new DAL();
+            ProductFactory facto = dal.ProductFact;
+            facto.Delete(id);
+            return RedirectToAction("List");
+        }
+
+
+
     }
 }

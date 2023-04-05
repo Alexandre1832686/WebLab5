@@ -124,6 +124,35 @@ namespace LabWeb5.Areas.Admin.DataAccessLayer.Factories
             }
         }
 
+        public Produit? GetByName(string Name)
+        {
+            Produit? Produit = null;
+            MySqlConnection? mySqlCnn = null;
+            MySqlDataReader? mySqlDataReader = null;
+
+            try
+            {
+                mySqlCnn = new MySqlConnection(DAL.ConnectionString);
+                mySqlCnn.Open();
+
+                MySqlCommand mySqlCmd = mySqlCnn.CreateCommand();
+                mySqlCmd.CommandText = "SELECT * FROM tp5_menuchoices WHERE Description = @Name";
+                mySqlCmd.Parameters.AddWithValue("@Name", Name);
+
+                mySqlDataReader = mySqlCmd.ExecuteReader();
+                if (mySqlDataReader.Read())
+                {
+                    Produit = CreateFromReader(mySqlDataReader);
+                }
+            }
+            finally
+            {
+                mySqlDataReader?.Close();
+                mySqlCnn?.Close();
+            }
+
+            return Produit;
+        }
 
         public void Delete(int id)
         {

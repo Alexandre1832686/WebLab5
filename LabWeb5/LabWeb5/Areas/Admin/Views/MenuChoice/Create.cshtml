@@ -1,4 +1,4 @@
-﻿@model Produit
+﻿@model ProductCreateEditVM
 @{
     ViewData["Title"] = "Liste des produits";
 }
@@ -9,10 +9,12 @@
             <div class="page-title">
                 <h2>Modifier un choix de menu</h2>
                 
-                <form asp-action="Edit">
-                    <label for="desc">Description</label>
-                    <input type="hidden" asp-for="Id" />
-                    <input asp-for="Nom"/>
+                <form asp-action="Create">
+                    <label asp-for="Produit.Nom"></label>
+                    <input type="hidden" asp-for="Produit.Id" />
+                    <input asp-for="Produit.Nom" />
+                    
+                    <span asp-validation-for="Produit.Nom" class="text-danger"></span>
                     <input type="submit"/>
                 </form>
             </div>

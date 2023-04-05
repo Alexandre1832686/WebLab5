@@ -1,0 +1,7 @@
+Message
+Nav bar 
+Footer
+Reservation
+title
+delete res
+changer sque je passe a create pour produit au lieu de vm

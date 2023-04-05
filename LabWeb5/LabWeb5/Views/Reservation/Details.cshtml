@@ -10,17 +10,22 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title">
-                <h2>Supprimer un choix de menu</h2>
+                <h2>Réservation complétée avec succès</h2>
 
-                <form asp-action="DeletePost">
-                    <label for="desc">Description :</label>
-                    <input type="hidden" asp-for="Id" />
-                    <h2>@Model.Nom</h2>
-                    <input type="submit" />
-                </form>
+                    <h2 style="font-weight:bolder">Nom :</h2><br/>
+                <h2> @Model.Nom </h2><br /><br />
+                <h2 style="font-weight:bolder">Courriel :</h2><br />
+                <h2> @Model.Courriel </h2><br /><br />
+                <h2 style="font-weight:bolder">Nombre :</h2><br/>
+                <h2> @Model.Nombre </h2><br /><br />
+                <h2 style="font-weight:bolder">Date :</h2><br />
+                <h2> @Model.Date></h2><br /><br />
+                <h2 style="font-weight:bolder">Choix de menu :</h2><br />
+                <h2> @Model.ProduitId </h2><br /><br />
+                
 
                 <br/>
-                <a asp-action="List">Retour à la liste des choix de menu</a>
+                <a asp-controller="Home" asp-action="index">Retour à la page d'accueil</a>
             </div>
 
         </div>

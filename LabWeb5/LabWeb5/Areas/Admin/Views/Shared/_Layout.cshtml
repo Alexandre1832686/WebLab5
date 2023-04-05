@@ -19,6 +19,7 @@
 </head>
 <body>
     <header>
+
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" asp-controller="home" asp-action="index">
                 ADMINISTRATION
@@ -29,10 +30,10 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="Admin" asp-controller="MenuChoice" asp-action="List">LES CHOIX DE MENU</a>
+                        <a class="nav-link" asp-area="List" asp-controller="MenuChoice" asp-action="List">LES CHOIX DE MENU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="home" asp-action="create">LES RÉSERVATIONS</a>
+                        <a class="nav-link" asp-controller="List" asp-action="Reservation">LES RÉSERVATIONS</a>
                     </li>
 
                 </ul>
@@ -48,9 +49,11 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            Démo Admin -
-            <a asp-area="Admin" asp-controller="Product" asp-action="List">Produits</a> |
-            <a asp-area="" asp-controller="Home" asp-action="Index">Site web</a>
+            <a asp-area="Admin" asp-controller="MenuChoice" asp-action="List">Les choix de menu</a> 
+            <a asp-area="Admin" asp-controller="Reservation" asp-action="List">Les réservations</a>
+        </div>
+        <div>
+            <b>ASP.NET MVC - Alexandre Perron</b>
         </div>
     </footer>
 
